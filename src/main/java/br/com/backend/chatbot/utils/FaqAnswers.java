@@ -1,7 +1,6 @@
 package br.com.backend.chatbot.utils;
 
 import br.com.backend.chatbot.domain.FaqAnswer;
-import lombok.Getter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
