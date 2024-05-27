@@ -10,14 +10,15 @@ import java.util.List;
 @Service
 public class AnswerService {
 
-    private FaqAnswers faqAnswers = new FaqAnswers();
+    final private FaqAnswers faqAnswers = new FaqAnswers();
 
     public String getAnswer(String message){
         String[] words = message.toLowerCase().split("\\s+");
-        List wordsList = Arrays.asList(words);
+        List wordsList = Arrays.asList(words).stream().map(String::toLowerCase).toList();
+        System.out.println(wordsList);
         for(FaqAnswer answer : faqAnswers.getAnswers()){
             for(String keyword: answer.getKeywords()){
-                if(wordsList.contains(keyword)){
+                if(wordsList.contains(keyword.toLowerCase())){
                     return answer.getAnswer();
                 }
             }
