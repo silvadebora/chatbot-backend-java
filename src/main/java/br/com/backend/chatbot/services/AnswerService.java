@@ -15,7 +15,6 @@ public class AnswerService {
     public String getAnswer(String message){
         String[] words = message.toLowerCase().split("\\s+");
         List wordsList = Arrays.asList(words).stream().map(String::toLowerCase).toList();
-        System.out.println(wordsList);
         for(FaqAnswer answer : faqAnswers.getAnswers()){
             for(String keyword: answer.getKeywords()){
                 if(wordsList.contains(keyword.toLowerCase())){
